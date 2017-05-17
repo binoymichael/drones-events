@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/cloudnativego/drones-events/service"
+	"app/service"
 )
 
 func main() {

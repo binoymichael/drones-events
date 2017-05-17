@@ -7,7 +7,7 @@ import (
 	//"github.com/cloudnativego/cf-tools"
 	"github.com/cloudnativego/cfmgo"
 	dronescommon "github.com/cloudnativego/drones-common"
-	"github.com/cloudnativego/drones-events/mongo"
+	"app/mongo"
 	"github.com/codegangsta/negroni"
 	"github.com/gorilla/mux"
 	"github.com/unrolled/render"
