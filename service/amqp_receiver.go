@@ -4,20 +4,22 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/cloudfoundry-community/go-cfenv"
-	"github.com/cloudnativego/cf-tools"
+	//"github.com/cloudfoundry-community/go-cfenv"
+	//"github.com/cloudnativego/cf-tools"
 	common "github.com/cloudnativego/drones-common"
 	"github.com/streadway/amqp"
 )
 
 func dequeueEvents(alertChannel chan common.AlertSignalledEvent, telemetryChannel chan common.TelemetryUpdatedEvent, positionChannel chan common.PositionChangedEvent) {
 	fmt.Printf("Starting AMQP queue de-serializer...")
-	appEnv, _ := cfenv.Current()
-	amqpURI, err := cftools.GetVCAPServiceProperty("rabbit", "url", appEnv)
-	if err != nil {
-		fmt.Println("No Rabbit/AMQP connection details supplied. ABORTING. No events will be dequeued!!!")
-		return
-	}
+	//appEnv, _ := cfenv.Current()
+	//amqpURI, err := cftools.GetVCAPServiceProperty("rabbit", "url", appEnv)
+	amqpURI := "amqp://guest:guest@rabbit:5672/"
+
+	//if err != nil {
+		//fmt.Println("No Rabbit/AMQP connection details supplied. ABORTING. No events will be dequeued!!!")
+		//return
+	//}
 	fmt.Printf("dialing %s\n", amqpURI)
 	conn, err := amqp.Dial(amqpURI)
 	if err != nil {
