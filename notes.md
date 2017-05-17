@@ -25,9 +25,11 @@ docker run -d --name my-drone-events-app \
 ```
 
 - Any command inserted into the drone-cmds should be rolled up into the mongodb
+```
 curl -i -X POST http://localhost:3000/api/cmds/telemetry \
      -H "Content-Type: application/json" \
      -d "{\"drone_id\":\"drone999\",\"battery\":72,\"uptime\":6941,\"core_temp\":21}"
+```
 - Check the mongodb server to verify if the service is working fine
 
 
